@@ -76,7 +76,7 @@ export default function Subscriptions() {
       <DashNav />
       <main className="relative top-16 left-50 p-4 w-[calc(100vw-200px)] flex flex-col gap-4">
         <header className="text-left">
-          <h2 className="text-3xl font-bold my-2">Payments</h2>
+          <h2 className="text-3xl font-bold my-2">Subscriptions</h2>
           <p>Manage all your subscriptions</p>
         </header>
         <div className="w-full p-4 h-16 flex justify-between border-border border rounded-lg items-center bg-border/40">
