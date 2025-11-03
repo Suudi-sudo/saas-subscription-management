@@ -82,23 +82,23 @@ function SideNav() {
         <h1 className="font-grotesk text-2xl">Billiance</h1>
       </a>
       <nav className="w-full flex flex-col items-center gap-4 p-2">
-        <a className={`flex items-center gap-2 w-full`}>
+        <a className={`flex items-center gap-2 w-full`} href="/dashboard">
           <LuLayoutDashboard className="text-2xl" />
           <div className={`text-lg`}>Dashboard</div>
         </a>
-        <a className={`flex items-center gap-2 w-full`}>
+        <a className={`flex items-center gap-2 w-full`} href="/subscriptions">
           <LuCreditCard className="text-2xl" />
           <div className={`text-lg`}>Subscriptions</div>
         </a>
-        <a className={`flex items-center gap-2 w-full`}>
+        <a className={`flex items-center gap-2 w-full`} href="/payments">
           <LuBadgeDollarSign className="text-2xl" />
           <div className={`text-lg`}>Payments</div>
         </a>
-        <a className={`flex items-center  gap-2 w-full`}>
+        <a className={`flex items-center  gap-2 w-full`} href="/analytics">
           <LuChartColumn className="text-2xl" />
           <div className={`text-lg`}>Analytics</div>
         </a>
-        <a className={`flex items-center gap-2 w-full`}>
+        <a className={`flex items-center gap-2 w-full`} href="/settings">
           <LuSettings className="text-2xl" />
           <div className={`text-lg`}>Settings</div>
         </a>

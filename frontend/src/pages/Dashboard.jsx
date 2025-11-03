@@ -115,11 +115,11 @@ export default function Dash() {
                       <p>{r.date}</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-4">
-                    <span className="bg-primary/10 p-1 px-2.5 rounded-full text-sm">
+                  <div className="flex items-center gap-4 justify-between">
+                    <span className="bg-primary/10 p-1 px-2.5 rounded-full text-sm w-18">
                       {tag}
                     </span>
-                    <span>{r.amount}</span>
+                    <span className=" text-left w-20">{r.amount}</span>
                   </div>
                 </div>
               );
