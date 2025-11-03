@@ -49,7 +49,7 @@ export default function Dash() {
           <p>Overview of your subscription spending and upcoming renewals</p>
         </div>
         <div className="flex justify-evenly gap-4 h-30">
-          <div className="w-1/4 h-full border border-border hover:border-primary rounded-2xl p-4 flex gap-4 items-center">
+          <div className="w-1/4 h-full border border-border bg-border/40 hover:border-primary rounded-2xl p-4 flex gap-4 items-center">
             <div className="p-2 bg-primary/20 rounded-lg w-fit h-fit">
               <LuDollarSign className="text-2xl text-primary" />
             </div>
@@ -60,7 +60,7 @@ export default function Dash() {
               <h5 className="text-3xl font-semibold">KSh 7652</h5>
             </div>
           </div>
-          <div className="w-1/4 h-full border border-border hover:border-primary rounded-2xl p-4 flex gap-4 items-center">
+          <div className="w-1/4 h-full border border-border bg-border/40 hover:border-primary rounded-2xl p-4 flex gap-4 items-center">
             <div className="p-2 bg-primary/20 rounded-lg w-fit h-fit">
               <LuTrendingUp className="text-2xl text-primary" />
             </div>
@@ -71,7 +71,7 @@ export default function Dash() {
               <h5 className="text-3xl font-semibold">KSh 91824</h5>
             </div>
           </div>
-          <div className="w-1/4 h-full border border-border hover:border-primary rounded-2xl p-4 flex gap-4 items-center">
+          <div className="w-1/4 h-full border border-border bg-border/40 hover:border-primary rounded-2xl p-4 flex gap-4 items-center">
             <div className="p-2 bg-primary/20 rounded-lg w-fit h-fit">
               <LuCreditCard className="text-2xl text-primary" />
             </div>
@@ -82,7 +82,7 @@ export default function Dash() {
               <h5 className="text-3xl font-semibold ">8</h5>
             </div>
           </div>
-          <div className="w-1/4 h-full border border-border hover:border-primary rounded-2xl p-4 flex gap-4 items-center">
+          <div className="w-1/4 h-full border border-border bg-border/40 hover:border-primary rounded-2xl p-4 flex gap-4 items-center">
             <div className="p-2 bg-primary/20 rounded-lg w-fit h-fit">
               <LuInfo className="text-2xl text-primary" />
             </div>
