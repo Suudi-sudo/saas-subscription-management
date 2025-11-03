@@ -127,7 +127,7 @@ export default function Subscriptions() {
           {sortedSubscriptions.map((subscription, index) => (
             <div
               key={index}
-              className="h-64 w-[30%] border border-border rounded-2xl bg-border/40 hover:border-primary flex flex-col items-baseline justify-evenly p-4"
+              className="h-64 w-[30%] min-w-60 max-w-90 border border-border rounded-2xl bg-border/40 hover:border-primary flex flex-col items-baseline justify-evenly p-4"
             >
               <div className="flex items-center justify-between w-full">
                 <div className="p-2 rounded-lg bg-primary/20 aspect-square w-10 font-semibold">
