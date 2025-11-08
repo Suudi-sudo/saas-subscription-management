@@ -29,7 +29,7 @@ function LandingNav({ className, drawerOpen, setDrawerOpen }) {
       <div className="hidden sm:flex items-center max-w-[300px] min-w-[270px] w-[36%] justify-between">
         <a href="#Features">Features</a>
         <a href="#Pricing">Pricing</a>
-        <a href="/auth" className="primary-link">
+        <a href="/login" className="primary-link">
           Get Started
         </a>
       </div>
@@ -56,7 +56,7 @@ function MobileNav({ className, drawerOpen, setDrawerOpen }) {
       <a href="#Pricing" className="text-left w-full text-lg">
         Pricing
       </a>
-      <a href="/auth" className="text-left w-full text-lg primary-link">
+      <a href="/login" className="text-left w-full text-lg primary-link">
         Get Started
       </a>
     </div>

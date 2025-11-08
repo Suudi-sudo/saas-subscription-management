@@ -4,6 +4,14 @@ import { useState } from "react";
 export default function Subscriptions() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedSort, setSelectedSort] = useState("Name");
+  const [showPopUp, setShowPopUp] = useState(false);
+  const [newSub, setNewSub] = useState({
+    name: "",
+    category: "",
+    cost: "",
+    date: "",
+    per: "mo",
+  });
   const categories = [
     "All",
     "Productivity",
@@ -13,7 +21,7 @@ export default function Subscriptions() {
     "Storage",
   ];
   const sortValues = ["Name", "Category", "Cost", "Date"];
-  const subscriptions = [
+  const [subscriptions, setSubscriptions] = useState([
     {
       name: "Netflix",
       category: "Streaming",
@@ -42,12 +50,20 @@ export default function Subscriptions() {
       date: "05/11/2025",
       per: "yr",
     },
-  ];
+  ]);
   const handleCategoryChange = (e) => {
     setSelectedCategory(e.target.value);
   };
   const handleSortChange = (e) => {
     setSelectedSort(e.target.value);
+  };
+  const handleAddSubscription = (e) => {
+    e.preventDefault();
+    if (!newSub.name || !newSub.category || !newSub.cost || !newSub.date)
+      return;
+    setSubscriptions([...subscriptions, newSub]);
+    setNewSub({ name: "", category: "", cost: "", date: "", per: "mo" });
+    setShowPopUp(false);
   };
   const filteredSubscriptions =
     selectedCategory === "All"
@@ -118,6 +134,7 @@ export default function Subscriptions() {
           </div>
           <button
             type="button"
+            onClick={() => setShowPopUp(true)}
             className="text-sm p-2 items-center flex bg-primary rounded-lg w-full sm:w-auto justify-center whitespace-nowrap"
           >
             + Add Subscription
@@ -137,7 +154,9 @@ export default function Subscriptions() {
                   {subscription.category}
                 </div>
               </div>
-              <div className="text-base md:text-lg font-bold">{subscription.name}</div>
+              <div className="text-base md:text-lg font-bold">
+                {subscription.name}
+              </div>
               <div className="text-xl md:text-2xl font-semibold">
                 KSh {subscription.cost}{" "}
                 <span className="text-muted-foreground text-sm md:text-md">
@@ -156,6 +175,89 @@ export default function Subscriptions() {
             </h3>
           )}
         </div>
+        {showPopUp && (
+          <div className="fixed inset-0 bg-black/60 z-345 backdrop-blur-sm flex items-center justify-center">
+            <div className="bg-[#11131a] border border-border rounded-2xl p-6 w-[90%] max-w-xl flex flex-col gap-4">
+              <h3 className="text-xl font-semibold">Add Subscription</h3>
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  handleAddSubscription(e);
+                }}
+                className="flex flex-col gap-4"
+              >
+                <input
+                  type="text"
+                  placeholder="Name"
+                  className="h-10 px-2 rounded-lg border border-border outline-none focus:border-primary bg-transparent"
+                  value={newSub.name}
+                  onChange={(e) =>
+                    setNewSub({ ...newSub, name: e.target.value })
+                  }
+                />
+                <select
+                  className="h-10 px-2 rounded-lg border border-border outline-none focus:border-primary bg-transparent"
+                  value={newSub.category}
+                  onChange={(e) =>
+                    setNewSub({ ...newSub, category: e.target.value })
+                  }
+                >
+                  <option value="">Select Category</option>
+                  {categories
+                    .filter((c) => c !== "All")
+                    .map((category) => (
+                      <option key={category} value={category}>
+                        {category}
+                      </option>
+                    ))}
+                </select>
+                <input
+                  type="number"
+                  placeholder="Cost (KSh)"
+                  className="h-10 px-2 rounded-lg border border-border outline-none focus:border-primary bg-transparent"
+                  value={newSub.cost}
+                  onChange={(e) =>
+                    setNewSub({ ...newSub, cost: e.target.value })
+                  }
+                />
+                <input
+                  type="text"
+                  placeholder="Renewal Date (DD/MM/YYYY)"
+                  className="h-10 px-2 rounded-lg border border-border outline-none focus:border-primary bg-transparent"
+                  value={newSub.date}
+                  onChange={(e) =>
+                    setNewSub({ ...newSub, date: e.target.value })
+                  }
+                />
+                <select
+                  className="h-10 px-2 rounded-lg border border-border outline-none focus:border-primary bg-transparent"
+                  value={newSub.per}
+                  onChange={(e) =>
+                    setNewSub({ ...newSub, per: e.target.value })
+                  }
+                >
+                  <option value="mo">Monthly</option>
+                  <option value="yr">Yearly</option>
+                </select>
+                <div className="flex justify-end gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setShowPopUp(false)}
+                    className="border border-border rounded-lg px-4 py-2 hover:bg-border/30"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    className="bg-primary rounded-lg px-4 py-2"
+                  >
+                    Add
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        )}
       </main>
     </div>
   );
