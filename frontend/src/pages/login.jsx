@@ -1,6 +1,6 @@
 import { FcGoogle } from "react-icons/fc";
 
-export default function Auth() {
+export default function LogIn() {
   return (
     <div className="w-full h-screen flex justify-center items-center">
       <div className="rounded-2xl border border-border h-130 max-w-140 w-[85%] min-w-76 p-4 bg-[#11131a45] backdrop-blur-2xl flex flex-col justify-evenly">
@@ -45,7 +45,7 @@ export default function Auth() {
         </form>
         <p>
           Not a member?{" "}
-          <a className="!text-foreground hover:!text-primary" href="/dashboard">
+          <a className="!text-foreground hover:!text-primary" href="/register">
             Sign Up
           </a>
         </p>
