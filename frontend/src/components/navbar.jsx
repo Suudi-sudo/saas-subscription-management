@@ -75,30 +75,30 @@ export function NavContainer() {
 function SideNav() {
   return (
     <aside
-      className={`fixed left-0 w-50 h-screen bg-background border-r border-border p-4 flex flex-col gap-6`}
+      className={`fixed left-0 w-50 h-screen bg-border/30 border-r border-border p-4 flex flex-col gap-6`}
     >
-      <a className="flex items-center gap-2">
+      <a className="flex items-center gap-2" href="/">
         <img src="/logo.png" className="h-8" />
         <h1 className="font-grotesk text-2xl">Billiance</h1>
       </a>
       <nav className="w-full flex flex-col items-center gap-4 p-2">
-        <a className={`flex items-center gap-2 w-full`}>
+        <a className={`flex items-center gap-2 w-full`} href="/dashboard">
           <LuLayoutDashboard className="text-2xl" />
           <div className={`text-lg`}>Dashboard</div>
         </a>
-        <a className={`flex items-center gap-2 w-full`}>
+        <a className={`flex items-center gap-2 w-full`} href="/subscriptions">
           <LuCreditCard className="text-2xl" />
           <div className={`text-lg`}>Subscriptions</div>
         </a>
-        <a className={`flex items-center gap-2 w-full`}>
+        <a className={`flex items-center gap-2 w-full`} href="/payments">
           <LuBadgeDollarSign className="text-2xl" />
           <div className={`text-lg`}>Payments</div>
         </a>
-        <a className={`flex items-center  gap-2 w-full`}>
+        <a className={`flex items-center  gap-2 w-full`} href="/analytics">
           <LuChartColumn className="text-2xl" />
           <div className={`text-lg`}>Analytics</div>
         </a>
-        <a className={`flex items-center gap-2 w-full`}>
+        <a className={`flex items-center gap-2 w-full`} href="/settings">
           <LuSettings className="text-2xl" />
           <div className={`text-lg`}>Settings</div>
         </a>
@@ -109,7 +109,7 @@ function SideNav() {
 
 function TopNav() {
   return (
-    <nav className="fixed top-0 right-0 w-[calc(100vw-200px)] flex items-center h-16 bg-background border-b border-border px-4 justify-between">
+    <nav className="fixed top-0 right-0 w-[calc(100vw-200px)] flex items-center h-16 backdrop-blur-lg bg-border/40 z-20 border-b border-border px-4 justify-between">
       <div className="relative flex items-center  rounded-full border border-border w-[65%] h-10 px-2 gap-2 focus-within:border-primary">
         <LuSearch />
         <input
@@ -117,7 +117,7 @@ function TopNav() {
           className=" w-[calc(100%-35px)] outline-none border-none group text-sm"
         />
       </div>
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-6">
         <button type="button" className="!border-none">
           <LuBell className="text-muted-foreground hover:text-foreground" />
         </button>
