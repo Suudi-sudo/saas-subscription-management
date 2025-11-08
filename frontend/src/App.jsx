@@ -8,6 +8,7 @@ import Subscriptions from "./pages/subscriptions";
 import Settings from "./pages/settings";
 import Register from "./pages/register";
 import LogIn from "./pages/login";
+import ProtectRoute from "./components/protectRoute";
 
 function App() {
   return (
@@ -17,11 +18,46 @@ function App() {
           <Route path="/" element={<Home />}></Route>
           <Route path="/login" element={<LogIn />}></Route>
           <Route path="/register" element={<Register />}></Route>
-          <Route path="/dashboard" element={<Dash />}></Route>
-          <Route path="/analytics" element={<Analytics />}></Route>
-          <Route path="/payments" element={<Payments />}></Route>
-          <Route path="/subscriptions" element={<Subscriptions />}></Route>
-          <Route path="/settings" element={<Settings />}></Route>
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectRoute>
+                <Dash />
+              </ProtectRoute>
+            }
+          ></Route>
+          <Route
+            path="/analytics"
+            element={
+              <ProtectRoute>
+                <Analytics />
+              </ProtectRoute>
+            }
+          ></Route>
+          <Route
+            path="/payments"
+            element={
+              <ProtectRoute>
+                <Payments />
+              </ProtectRoute>
+            }
+          ></Route>
+          <Route
+            path="/subscriptions"
+            element={
+              <ProtectRoute>
+                <Subscriptions />
+              </ProtectRoute>
+            }
+          ></Route>
+          <Route
+            path="/settings"
+            element={
+              <ProtectRoute>
+                <Settings />
+              </ProtectRoute>
+            }
+          ></Route>
         </Routes>
       </Router>
     </>

@@ -1,22 +1,17 @@
 import { useState } from "react";
-import {
-  BiBarChart,
-  BiCreditCard,
-  BiDollar,
-  BiSolidDashboard,
-  BiSliderAlt,
-} from "react-icons/bi";
 import { IoMenu } from "react-icons/io5";
 import {
   LuBadgeDollarSign,
-  LuBell,
   LuChartColumn,
   LuCreditCard,
   LuLayoutDashboard,
+  LuLogOut,
   LuSearch,
   LuSettings,
   LuX,
 } from "react-icons/lu";
+import { useNavigate } from "react-router-dom";
+const userName = "User";
 function LandingNav({ className, drawerOpen, setDrawerOpen }) {
   return (
     <div
@@ -73,6 +68,7 @@ export function NavContainer() {
 }
 
 function SideNav({ isMobileMenuOpen, setMobileMenuOpen }) {
+  const navigate = useNavigate();
   return (
     <>
       {/* Desktop Sidebar */}
@@ -105,6 +101,22 @@ function SideNav({ isMobileMenuOpen, setMobileMenuOpen }) {
             <div className={`text-lg`}>Settings</div>
           </a>
         </nav>
+        <div className="flex items-center gap-2 absolute bottom-8">
+          <div className="aspect-square h-12 rounded-full border border-border bg-primary/30 flex items-center justify-center">
+            {userName[0]}
+          </div>
+          <button
+            type="button"
+            className="!border-none hover:text-muted-foreground"
+            onClick={() => {
+              localStorage.removeItem("authToken");
+              navigate("/login");
+            }}
+          >
+            Sign Out
+            <LuLogOut />
+          </button>
+        </div>
       </aside>
 
       {/* Mobile Sidebar */}
