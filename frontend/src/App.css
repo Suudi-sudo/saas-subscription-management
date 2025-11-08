@@ -1,8 +1,6 @@
 #root {
   margin: 0 auto;
   text-align: center;
-  overflow-x: hidden;
-  width: 100%;
 }
 .primary-link {
   display: flex;
@@ -13,7 +11,6 @@
   color: var(--color-foreground);
   border-radius: 8px;
   transition: all ease-in-out 0.3s;
-  white-space: nowrap;
 }
 .primary-link:hover {
   background: #4973fbe5;
@@ -30,7 +27,6 @@
   border: var(--color-border) 1px solid;
   overflow: hidden;
   position: relative;
-  white-space: nowrap;
 }
 .secondary-link::before {
   position: absolute;

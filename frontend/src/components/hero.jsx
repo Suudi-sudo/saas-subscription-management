@@ -29,7 +29,10 @@ export default function Hero({ className }) {
         className="w-full flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in px-4"
         style={{ animationDelay: "0.3s" }}
       >
-        <a className="primary-link h-12 w-full sm:w-[75%] md:w-[28%] sm:max-w-[230px]">
+        <a
+          className="primary-link h-12 w-full sm:w-[75%] md:w-[28%] sm:max-w-[230px]"
+          href="/login"
+        >
           Start Free Trial &rarr;
         </a>
         <a className="h-12 w-full sm:w-[75%] md:w-[28%] sm:max-w-[230px] secondary-link">

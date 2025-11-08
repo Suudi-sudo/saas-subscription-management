@@ -27,12 +27,15 @@ export default function Pricing() {
                 {plan.price}
               </h5>
               {plan.period && (
-                <span className="text-muted-foreground text-sm md:text-base">{plan.period}</span>
+                <span className="text-muted-foreground text-sm md:text-base">
+                  {plan.period}
+                </span>
               )}
             </div>
             <p className="text-left text-sm md:text-base">{plan.description}</p>
             <a
               className={`${plan.popular ? "primary-link" : "secondary-link"} w-full sm:w-[80%] h-12`}
+              href="/login"
             >
               {plan.cta}
             </a>
