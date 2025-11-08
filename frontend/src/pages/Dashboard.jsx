@@ -43,58 +43,58 @@ export default function Dash() {
   return (
     <div>
       <DashNav />
-      <main className="relative top-16 left-50 p-4 w-[calc(100vw-200px)] flex flex-col gap-4">
+      <main className="relative top-16 md:left-50 p-4 md:w-[calc(100vw-200px)] flex flex-col gap-4">
         <div className="text-left">
           <h2 className="text-3xl font-bold">Dashboard</h2>
           <p>Overview of your subscription spending and upcoming renewals</p>
         </div>
-        <div className="flex justify-evenly gap-4 h-30">
-          <div className="w-1/4 h-full border border-border bg-border/40 hover:border-primary rounded-2xl p-4 flex gap-4 items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          <div className="w-full h-full border border-border bg-border/40 hover:border-primary rounded-2xl p-4 flex gap-4 items-center">
             <div className="p-2 bg-primary/20 rounded-lg w-fit h-fit">
               <LuDollarSign className="text-2xl text-primary" />
             </div>
-            <div className="flex flex-col items-baseline">
+            <div className="flex flex-col items-baseline text-left">
               <h4 className="text-lg text-muted-foreground">
                 Total Monthly Spending
               </h4>
               <h5 className="text-3xl font-semibold">KSh 7652</h5>
             </div>
           </div>
-          <div className="w-1/4 h-full border border-border bg-border/40 hover:border-primary rounded-2xl p-4 flex gap-4 items-center">
+          <div className="w-full h-full border border-border bg-border/40 hover:border-primary rounded-2xl p-4 flex gap-4 items-center">
             <div className="p-2 bg-primary/20 rounded-lg w-fit h-fit">
               <LuTrendingUp className="text-2xl text-primary" />
             </div>
-            <div className="flex flex-col items-baseline">
+            <div className="flex flex-col items-baseline text-left">
               <h4 className="text-lg text-muted-foreground">
                 Yearly Projection
               </h4>
               <h5 className="text-3xl font-semibold">KSh 91824</h5>
             </div>
           </div>
-          <div className="w-1/4 h-full border border-border bg-border/40 hover:border-primary rounded-2xl p-4 flex gap-4 items-center">
+          <div className="w-full h-full border border-border bg-border/40 hover:border-primary rounded-2xl p-4 flex gap-4 items-center">
             <div className="p-2 bg-primary/20 rounded-lg w-fit h-fit">
               <LuCreditCard className="text-2xl text-primary" />
             </div>
-            <div className="flex flex-col items-baseline">
+            <div className="flex flex-col items-baseline text-left">
               <h4 className="text-lg text-muted-foreground">
                 Active Subscriptions
               </h4>
               <h5 className="text-3xl font-semibold ">8</h5>
             </div>
           </div>
-          <div className="w-1/4 h-full border border-border bg-border/40 hover:border-primary rounded-2xl p-4 flex gap-4 items-center">
+          <div className="w-full h-full border border-border bg-border/40 hover:border-primary rounded-2xl p-4 flex gap-4 items-center">
             <div className="p-2 bg-primary/20 rounded-lg w-fit h-fit">
               <LuInfo className="text-2xl text-primary" />
             </div>
-            <div className="flex flex-col items-baseline">
+            <div className="flex flex-col items-baseline text-left">
               <h4 className="text-lg text-muted-foreground">Highest Cost</h4>
               <h5 className="text-3xl font-semibold">KSh 1130</h5>
             </div>
           </div>
         </div>
-        <div className="flex items-center w-full gap-4 h-100">
-          <SpendingChart className="w-1/2 h-full" />
-          <CategoryPie className="w-1/2 h-full border border-border rounded-2xl" />
+        <div className="flex flex-col lg:flex-row items-center w-full gap-4 h-200 lg:h-100">
+          <SpendingChart className="w-full lg:w-1/2 h-full" />
+          <CategoryPie className="lg:w-1/2 w-full h-full border border-border rounded-2xl" />
         </div>
         <div className="rounded-2xl w-full h-110 border border-border flex flex-col p-4 items-start gap-4">
           <h3 className="text-2xl font-bold my-2">Upcoming Renewals</h3>

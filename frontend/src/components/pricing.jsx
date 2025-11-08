@@ -2,15 +2,15 @@ import { LuCheck } from "react-icons/lu";
 
 export default function Pricing() {
   return (
-    <div id="Pricing" className="flex flex-col items-center gap-4">
-      <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold leading-15">
+    <div id="Pricing" className="flex flex-col items-center gap-4 px-4">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight text-center">
         Simple, Transparent <div className="text-primary">Pricing</div>
       </h2>
-      <p className="">
+      <p className="text-center text-sm sm:text-base">
         Choose the plan that fits your needs. All plans include a 14-day free
         trial.
       </p>
-      <div className="grid md:grid-cols-3 gap-8 max-w-6xl p-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl p-5 w-full">
         {plans.map((plan, index) => (
           <div
             key={index}
@@ -21,18 +21,21 @@ export default function Pricing() {
                 Most Popular
               </div>
             )}
-            <h4 className="text-2xl font-bold">{plan.name}</h4>
+            <h4 className="text-xl md:text-2xl font-bold">{plan.name}</h4>
             <div className="flex items-baseline gap-0.5">
-              <h5 className="font-bold text-foreground text-4xl">
+              <h5 className="font-bold text-foreground text-3xl md:text-4xl">
                 {plan.price}
               </h5>
               {plan.period && (
-                <span className="text-muted-foreground">{plan.period}</span>
+                <span className="text-muted-foreground text-sm md:text-base">
+                  {plan.period}
+                </span>
               )}
             </div>
-            <p className="text-left">{plan.description}</p>
+            <p className="text-left text-sm md:text-base">{plan.description}</p>
             <a
-              className={`${plan.popular ? "primary-link" : "secondary-link"} w-[80%] h-12`}
+              className={`${plan.popular ? "primary-link" : "secondary-link"} w-full sm:w-[80%] h-12`}
+              href="/login"
             >
               {plan.cta}
             </a>
@@ -40,9 +43,9 @@ export default function Pricing() {
               {plan.features.map((feature, featureIndex) => (
                 <li
                   key={featureIndex}
-                  className="flex items-center justify-baseline gap-2 w-full text-muted-foreground"
+                  className="flex items-center justify-baseline gap-2 w-full text-muted-foreground text-sm md:text-base"
                 >
-                  <LuCheck className="text-primary" />
+                  <LuCheck className="text-primary flex-shrink-0" />
                   <span>{feature}</span>
                 </li>
               ))}

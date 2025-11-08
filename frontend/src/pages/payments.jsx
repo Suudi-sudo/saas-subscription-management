@@ -58,7 +58,7 @@ export default function Payments() {
   return (
     <div>
       <DashNav />
-      <main className="relative top-16 left-50 p-4 w-[calc(100vw-200px)] flex flex-col gap-4">
+      <main className="relative top-16 md:left-50 p-4 md:w-[calc(100vw-200px)] flex flex-col gap-4">
         <header className="text-left">
           <h2 className="text-3xl font-bold my-2">Payments</h2>
           <p>Track your subscription payment history</p>
@@ -80,7 +80,7 @@ export default function Payments() {
             ))}
           </select>
         </div>
-        <table className="border-separate rounded-lg w-full border border-border bg-border/40">
+        <table className="border-separate rounded-lg w-full border border-border bg-border/40 overflow-x-scroll">
           <thead className="bg-background">
             <tr>
               <th className="text-left pl-4 py-1.5">Subscription</th>
