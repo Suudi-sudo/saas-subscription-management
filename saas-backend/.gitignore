@@ -1,22 +1,36 @@
 # Dependencies
 node_modules/
-*/node_modules/
-
-# Package lock files (optional, but helps avoid conflicts)
 package-lock.json
-*/package-lock.json
 
 # Environment variables
 .env
 .env.local
+.env.*.local
 
-# Build outputs
-dist/
-build/
-.next/
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# OS files
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
 .DS_Store
 Thumbs.db
-node_modules/
-*/node_modules/
+
+# Build files
+dist/
+build/
