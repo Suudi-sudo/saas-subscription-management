@@ -79,7 +79,11 @@ export default function LogIn() {
       {error && (
         <div className="absolute top-4 right-4 p-2 rounded-lg w-70 h-22 border border-border flex items-center">
           <div className="text-left text-red-400 font-semibold">{error}</div>
-          <button type="button" className="!border-none">
+          <button
+            type="button"
+            className="!border-none"
+            onClick={() => setError(null)}
+          >
             <LuX className="text-xl hover:text-primary" />
           </button>
         </div>

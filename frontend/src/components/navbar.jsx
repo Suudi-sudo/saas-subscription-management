@@ -179,6 +179,22 @@ function SideNav({ isMobileMenuOpen, setMobileMenuOpen }) {
             <div className={`text-lg`}>Settings</div>
           </a>
         </nav>
+        <div className="flex items-center gap-2 absolute bottom-8">
+          <div className="aspect-square h-12 rounded-full border border-border bg-primary/30 flex items-center justify-center">
+            {userName[0]}
+          </div>
+          <button
+            type="button"
+            className="!border-none hover:text-muted-foreground"
+            onClick={() => {
+              localStorage.removeItem("authToken");
+              navigate("/login");
+            }}
+          >
+            Sign Out
+            <LuLogOut />
+          </button>
+        </div>
       </aside>
 
       {/* Mobile Overlay */}
