@@ -89,7 +89,7 @@ router.post("/login", async (req, res) => {
 
     // Check if user has password (might be Google OAuth user)
     if (!user.password) {
-      return res.status(400).json({ error: "Please use Google OAuth to login" })
+      return res.status(400).json({ error: "This email is registered with Google. Please use Google OAuth to login or reset your password." })
     }
 
     // Check password
