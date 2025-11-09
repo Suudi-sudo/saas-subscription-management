@@ -11,6 +11,7 @@ const router = express.Router()
 // Email/Password Registration
 router.post("/register", async (req, res) => {
   try {
+    console.log('1. Registration request received')
     const { email, password, name } = req.body
 
     if (!validateEmail(email)) {
@@ -21,15 +22,19 @@ router.post("/register", async (req, res) => {
       return res.status(400).json({ error: "Password must be at least 6 characters" })
     }
 
+    console.log('2. Checking if user exists...')
     // Check if user exists
     let user = await User.findOne({ email })
     if (user) {
       return res.status(400).json({ error: "User already exists" })
     }
 
-    // Hash password
-    const hashedPassword = await bcrypt.hash(password, 12)
+    console.log('3. Hashing password...')
+    // Hash password - CHANGED FROM 12 TO 10 FOR BETTER PERFORMANCE
+    const hashedPassword = await bcrypt.hash(password, 10)
+    console.log('4. Password hashed successfully')
 
+    console.log('5. Creating user...')
     // Create new user
     user = new User({
       email,
@@ -39,17 +44,21 @@ router.post("/register", async (req, res) => {
     })
 
     await user.save()
+    console.log('6. User saved to database')
 
     // Create default notification preferences
     await NotificationPreference.create({ userId: user._id })
+    console.log('7. Notification preferences created')
 
     // Send welcome email
     try {
       await sendWelcomeEmail({ email, name })
+      console.log('8. Welcome email sent successfully')
     } catch (emailError) {
       console.log("Welcome email failed:", emailError)
     }
 
+    console.log('9. Generating JWT token...')
     // Generate token
     const token = jwt.sign(
       { userId: user._id, email: user.email }, 
@@ -57,6 +66,7 @@ router.post("/register", async (req, res) => {
       { expiresIn: "7d" }
     )
 
+    console.log('10. Sending response to client')
     res.status(201).json({
       token,
       user: {
@@ -68,6 +78,7 @@ router.post("/register", async (req, res) => {
       },
     })
   } catch (error) {
+    console.error('Registration error:', error)
     res.status(500).json({ error: error.message })
   }
 })
