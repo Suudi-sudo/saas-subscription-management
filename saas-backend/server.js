@@ -15,10 +15,14 @@ import { startNotificationScheduler } from "./services/notificationScheduler.js"
 
 const app = express()
 
-// Middleware
+// Middleware - UPDATED CORS CONFIGURATION
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL || "http://localhost:5173", 
+    origin: [
+      process.env.FRONTEND_URL || "http://localhost:5173",
+      "https://saas-subscription-management-bfys.vercel.app",
+      "https://saas-subscription-management.vercel.app"
+    ], 
     credentials: true,
   }),
 )
