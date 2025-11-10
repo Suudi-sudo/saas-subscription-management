@@ -6,6 +6,12 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   build: {
     outDir: 'dist',
+    emptyOutDir: true
   },
-  base: '/', // Make sure this is set to root
+  // This is crucial for SPA routing
+  base: './',
+  // Enable SPA fallback
+  server: {
+    historyApiFallback: true
+  }
 })

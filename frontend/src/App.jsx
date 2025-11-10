@@ -15,9 +15,9 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/login" element={<LogIn />}></Route>
-          <Route path="/register" element={<Register />}></Route>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<LogIn />} />
+          <Route path="/register" element={<Register />} />
           <Route
             path="/dashboard"
             element={
@@ -25,7 +25,7 @@ function App() {
                 <Dash />
               </ProtectRoute>
             }
-          ></Route>
+          />
           <Route
             path="/analytics"
             element={
@@ -33,7 +33,7 @@ function App() {
                 <Analytics />
               </ProtectRoute>
             }
-          ></Route>
+          />
           <Route
             path="/payments"
             element={
@@ -41,7 +41,7 @@ function App() {
                 <Payments />
               </ProtectRoute>
             }
-          ></Route>
+          />
           <Route
             path="/subscriptions"
             element={
@@ -49,7 +49,7 @@ function App() {
                 <Subscriptions />
               </ProtectRoute>
             }
-          ></Route>
+          />
           <Route
             path="/settings"
             element={
@@ -57,7 +57,9 @@ function App() {
                 <Settings />
               </ProtectRoute>
             }
-          ></Route>
+          />
+          {/* ADD THIS CATCH-ALL ROUTE - THIS FIXES THE 404 ISSUE */}
+          <Route path="*" element={<Home />} />
         </Routes>
       </Router>
     </>
