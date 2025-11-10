@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { LuX } from "react-icons/lu";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useGoogleLogin } from '@react-oauth/google';
 
 export default function LogIn() {
@@ -184,9 +184,9 @@ export default function LogIn() {
         
         <p>
           Not a member?{" "}
-          <a className="!text-foreground hover:!text-primary" href="/register">
+          <Link to="/register" className="!text-foreground hover:!text-primary">
             Sign Up
-          </a>
+          </Link>
         </p>
       </div>
       
