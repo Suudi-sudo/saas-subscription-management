@@ -131,3 +131,4 @@ JWT for authentication
 bcryptjs for password hashing
 Nodemailer for email service
 Google OAuth 2.0
+<!-- done  -->
