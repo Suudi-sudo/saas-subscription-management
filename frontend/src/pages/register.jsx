@@ -199,7 +199,7 @@ export default function Register() {
           <input
             className="h-12 w-full rounded-lg outline-none border border-muted-foreground focus:border-primary px-2 bg-transparent"
             type="text"
-            placeholder="John Doe"
+            placeholder=""
             name="name"
             required
             value={form.name}
