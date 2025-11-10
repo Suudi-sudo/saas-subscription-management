@@ -4,7 +4,7 @@ import bcrypt from "bcryptjs"
 import User from "../models/User.js"
 import NotificationPreference from "../models/NotificationPreference.js"
 import { validateEmail } from "../utils/validators.js"
-import { sendWelcomeEmail } from "../services/emailService.js"
+// REMOVED: import { sendWelcomeEmail } from "../services/emailService.js"
 
 const router = express.Router()
 
@@ -40,7 +40,7 @@ router.post("/register", async (req, res) => {
       email,
       password: hashedPassword,
       name,
-      authMethod: "email" // Track authentication method
+      authMethod: "email"
     })
 
     await user.save()
@@ -50,13 +50,8 @@ router.post("/register", async (req, res) => {
     await NotificationPreference.create({ userId: user._id })
     console.log('7. Notification preferences created')
 
-    // Send welcome email
-    try {
-      await sendWelcomeEmail({ email, name })
-      console.log('8. Welcome email sent successfully')
-    } catch (emailError) {
-      console.log("Welcome email failed:", emailError)
-    }
+    // REMOVED: Welcome email - was causing SMTP timeout
+    console.log('8. Skipping welcome email (disabled)')
 
     console.log('9. Generating JWT token...')
     // Generate token
@@ -156,12 +151,8 @@ router.post("/google", async (req, res) => {
       // Create default notification preferences
       await NotificationPreference.create({ userId: user._id })
 
-      // Send welcome email
-      try {
-        await sendWelcomeEmail({ email, name })
-      } catch (emailError) {
-        console.log("Welcome email failed:", emailError)
-      }
+      // REMOVED: Welcome email - was causing timeout
+      console.log("Welcome email skipped for Google OAuth user")
     } else if (!user.googleId) {
       user.googleId = googleId
       user.authMethod = "both" // User can use both methods
