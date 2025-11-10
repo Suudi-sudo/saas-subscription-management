@@ -10,23 +10,25 @@ import {
   LuSettings,
   LuX,
 } from "react-icons/lu";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+
 const userName = "User";
+
 function LandingNav({ className, drawerOpen, setDrawerOpen }) {
   return (
     <div
       className={`w-full h-16 fixed top-0 left-0 bg-background/60 backdrop-blur-lg z-100 border-border border-b flex justify-between px-6 items-center ${className}`}
     >
-      <a href="#Hero" className="flex items-center gap-1.5">
+      <Link to="/" className="flex items-center gap-1.5">
         <img src="/logo.png" className="h-8" />
         <h1 className="font-grotesk text-2xl">Billiance</h1>
-      </a>
+      </Link>
       <div className="hidden sm:flex items-center max-w-[300px] min-w-[270px] w-[36%] justify-between">
         <a href="#Features">Features</a>
         <a href="#Pricing">Pricing</a>
-        <a href="/login" className="primary-link">
+        <Link to="/login" className="primary-link">
           Get Started
-        </a>
+        </Link>
       </div>
       <button
         className="text-white px-3 py-1 sm:hidden"
@@ -37,6 +39,7 @@ function LandingNav({ className, drawerOpen, setDrawerOpen }) {
     </div>
   );
 }
+
 function MobileNav({ className, drawerOpen, setDrawerOpen }) {
   return (
     <div
@@ -51,12 +54,13 @@ function MobileNav({ className, drawerOpen, setDrawerOpen }) {
       <a href="#Pricing" className="text-left w-full text-lg">
         Pricing
       </a>
-      <a href="/login" className="text-left w-full text-lg primary-link">
+      <Link to="/login" className="text-left w-full text-lg primary-link">
         Get Started
-      </a>
+      </Link>
     </div>
   );
 }
+
 export function NavContainer() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   return (
@@ -75,31 +79,31 @@ function SideNav({ isMobileMenuOpen, setMobileMenuOpen }) {
       <aside
         className={`hidden md:flex fixed left-0 w-50 h-screen bg-border/30 border-r border-border p-4 flex-col gap-6`}
       >
-        <a className="flex items-center gap-2" href="/">
+        <Link className="flex items-center gap-2" to="/">
           <img src="/logo.png" className="h-8" />
           <h1 className="font-grotesk text-2xl">Billiance</h1>
-        </a>
+        </Link>
         <nav className="w-full flex flex-col items-center gap-4 p-2">
-          <a className={`flex items-center gap-2 w-full`} href="/dashboard">
+          <Link className={`flex items-center gap-2 w-full`} to="/dashboard">
             <LuLayoutDashboard className="text-2xl" />
             <div className={`text-lg`}>Dashboard</div>
-          </a>
-          <a className={`flex items-center gap-2 w-full`} href="/subscriptions">
+          </Link>
+          <Link className={`flex items-center gap-2 w-full`} to="/subscriptions">
             <LuCreditCard className="text-2xl" />
             <div className={`text-lg`}>Subscriptions</div>
-          </a>
-          <a className={`flex items-center gap-2 w-full`} href="/payments">
+          </Link>
+          <Link className={`flex items-center gap-2 w-full`} to="/payments">
             <LuBadgeDollarSign className="text-2xl" />
             <div className={`text-lg`}>Payments</div>
-          </a>
-          <a className={`flex items-center  gap-2 w-full`} href="/analytics">
+          </Link>
+          <Link className={`flex items-center  gap-2 w-full`} to="/analytics">
             <LuChartColumn className="text-2xl" />
             <div className={`text-lg`}>Analytics</div>
-          </a>
-          <a className={`flex items-center gap-2 w-full`} href="/settings">
+          </Link>
+          <Link className={`flex items-center gap-2 w-full`} to="/settings">
             <LuSettings className="text-2xl" />
             <div className={`text-lg`}>Settings</div>
-          </a>
+          </Link>
         </nav>
         <div className="flex items-center gap-2 absolute bottom-8">
           <div className="aspect-square h-12 rounded-full border border-border bg-primary/30 flex items-center justify-center">
@@ -126,10 +130,10 @@ function SideNav({ isMobileMenuOpen, setMobileMenuOpen }) {
         }`}
       >
         <div className="flex items-center justify-between">
-          <a className="flex items-center gap-2" href="/">
+          <Link className="flex items-center gap-2" to="/">
             <img src="/logo.png" className="h-8" />
             <h1 className="font-grotesk text-2xl">Billiance</h1>
-          </a>
+          </Link>
           <button
             onClick={() => setMobileMenuOpen(false)}
             className="p-1 md:hidden"
@@ -138,46 +142,46 @@ function SideNav({ isMobileMenuOpen, setMobileMenuOpen }) {
           </button>
         </div>
         <nav className="w-full flex flex-col items-center gap-4 p-2">
-          <a
+          <Link
             className={`flex items-center gap-2 w-full`}
-            href="/dashboard"
+            to="/dashboard"
             onClick={() => setMobileMenuOpen(false)}
           >
             <LuLayoutDashboard className="text-2xl" />
             <div className={`text-lg`}>Dashboard</div>
-          </a>
-          <a
+          </Link>
+          <Link
             className={`flex items-center gap-2 w-full`}
-            href="/subscriptions"
+            to="/subscriptions"
             onClick={() => setMobileMenuOpen(false)}
           >
             <LuCreditCard className="text-2xl" />
             <div className={`text-lg`}>Subscriptions</div>
-          </a>
-          <a
+          </Link>
+          <Link
             className={`flex items-center gap-2 w-full`}
-            href="/payments"
+            to="/payments"
             onClick={() => setMobileMenuOpen(false)}
           >
             <LuBadgeDollarSign className="text-2xl" />
             <div className={`text-lg`}>Payments</div>
-          </a>
-          <a
+          </Link>
+          <Link
             className={`flex items-center  gap-2 w-full`}
-            href="/analytics"
+            to="/analytics"
             onClick={() => setMobileMenuOpen(false)}
           >
             <LuChartColumn className="text-2xl" />
             <div className={`text-lg`}>Analytics</div>
-          </a>
-          <a
+          </Link>
+          <Link
             className={`flex items-center gap-2 w-full`}
-            href="/settings"
+            to="/settings"
             onClick={() => setMobileMenuOpen(false)}
           >
             <LuSettings className="text-2xl" />
             <div className={`text-lg`}>Settings</div>
-          </a>
+          </Link>
         </nav>
         <div className="flex items-center gap-2 absolute bottom-8">
           <div className="aspect-square h-12 rounded-full border border-border bg-primary/30 flex items-center justify-center">
