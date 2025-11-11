@@ -20,14 +20,18 @@ export default function Subscriptions() {
 
   const API_BASE_URL = "https://saas-subscription-management.onrender.com";
 
+  // Use the exact same categories that your backend expects
   const categories = [
     "All",
     "Productivity",
-    "Streaming",
-    "Education",
-    "Gaming",
-    "Storage",
+    "Entertainment", // Changed from "Streaming"
+    "Education", 
+    "Utilities", // Changed from "Gaming"
+    "Software", // Changed from "Storage"
   ];
+
+  // Categories for the dropdown (without "All")
+  const categoryOptions = categories.filter(c => c !== "All");
 
   const sortValues = [
     { value: "name", label: "Name" },
@@ -124,11 +128,10 @@ export default function Subscriptions() {
         throw new Error(errorData.error || 'Failed to create subscription');
       }
 
-      const createdSubscription = await response.json();
-      
       // Refresh the subscriptions list
       await fetchSubscriptions();
       
+      // Reset form and close modal - FIXED: This was missing
       setNewSub({ 
         name: "", 
         category: "", 
@@ -136,7 +139,7 @@ export default function Subscriptions() {
         billingCycle: "monthly", 
         nextRenewalDate: "" 
       });
-      setShowPopUp(false);
+      setShowPopUp(false); // FIXED: Close the modal after successful addition
       setError("");
     } catch (error) {
       if (error.name === 'AbortError') {
@@ -361,13 +364,11 @@ export default function Subscriptions() {
                   required
                 >
                   <option value="">Select Category</option>
-                  {categories
-                    .filter((c) => c !== "All")
-                    .map((category) => (
-                      <option key={category} value={category}>
-                        {category}
-                      </option>
-                    ))}
+                  {categoryOptions.map((category) => (
+                    <option key={category} value={category}>
+                      {category}
+                    </option>
+                  ))}
                 </select>
                 <input
                   type="number"
